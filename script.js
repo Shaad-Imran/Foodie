@@ -15,4 +15,28 @@ for (let i = 0; i < navbarLinks.length; i++) {
   });
 }
 
+// * header sticky & back to top
+const header = document.querySelector(".header");
 
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 100) {
+    header.classList.add("active");
+  } else {
+    header.classList.remove("active");
+  }
+});
+
+// * search box toggle
+const searchBtn = document.querySelector(".search-btn");
+const searchContainer = document.querySelector(".search-container");
+const searchSubmitBtn = document.querySelector(".search-submit");
+const searchCloseBtn = document.querySelector(".search-close-btn");
+
+const searchBoxElems = [searchBtn, searchSubmitBtn, searchCloseBtn];
+
+for (let i = 0; i < searchBoxElems.length; i++) {
+  searchBoxElems[i].addEventListener("click", function () {
+    searchContainer.classList.toggle("active");
+    document.body.classList.toggle("active");
+  });
+}
