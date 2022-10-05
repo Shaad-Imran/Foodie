@@ -1160,6 +1160,187 @@ body.active {
   gap: 10px;
 }
 
+/* footer  */
+.footer {
+  overflow: hidden;
+}
+
+.footer-top {
+  position: relative;
+  padding-block: 12rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  border-block-end: 2px solid var(--independence_30);
+}
+
+.footer-top::after {
+  content: url("images/delivery-boy.svg");
+  position: absolute;
+  bottom: -11px;
+  left: -16rem;
+  width: 16rem;
+  animation: running-cycle 20s linear infinite;
+}
+
+@keyframes running-cycle {
+  0% {
+    left: -16rem;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.footer-top .container {
+  display: grid;
+  gap: 30px;
+}
+
+.footer .logo {
+  color: var(--rich-black-fogra-29);
+  font-size: 3.2rem;
+}
+
+.footer-text {
+  margin-block: 1.5rem 2.5rem;
+}
+
+.social-list {
+  display: flex;
+  gap: 5px;
+}
+
+.social-link {
+  background-color: var(--dark-orange);
+  color: var(--white);
+  font-size: 1.5rem;
+  padding: 1rem;
+  transition: var(--transition-1);
+}
+
+.social-link:is(:hover, :focus) {
+  background-color: var(--rich-black-fogra-29);
+}
+
+.footer-list-title {
+  position: relative;
+  max-width: max-content;
+  color: var(--rich-black-fogra-29);
+  font-family: var(--ff-rubik);
+  font-size: var(--fs-3);
+  font-weight: var(--fw-600);
+  letter-spacing: -1px;
+  margin-block-end: 2rem;
+}
+
+.footer-list-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(100% + 15px);
+  background-color: var(--deep-saffron);
+  width: 4rem;
+  height: 4px;
+  border-inline-end: 5px solid var(--deep-saffron);
+  box-shadow: inset -5px 0 0 var(--white);
+}
+
+.footer-list > li:not(:last-child) {
+  margin-block-end: 15px;
+}
+
+.footer-list address {
+  max-width: 20ch;
+}
+
+.footer-form {
+  background-color: var(--white);
+  padding: 30px;
+  border: 1px solid var(--cultured);
+  box-shadow: var(--shadow-2);
+}
+
+.input-wrapper {
+  display: grid;
+  gap: 10px;
+  margin-block-end: 10px;
+}
+
+.input-field {
+  color: var(--spanish-gray);
+  font-size: var(--fs-4);
+  border: 1px solid var(--cultured);
+  padding: 8px 12px;
+}
+
+.input-field::placeholder {
+  color: var(--spanish-gray);
+}
+
+.input-field::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+}
+
+textarea.input-field {
+  min-height: 5rem;
+  max-height: 15rem;
+  height: 10rem;
+  resize: vertical;
+  margin-block-end: 1rem;
+}
+
+.footer-form .btn {
+  font-size: var(--fs-15);
+  --height: 4rem;
+  --padding-inline: 2.5rem;
+}
+
+.footer-form .btn:is(:hover, :focus) {
+  background-color: var(--rich-black-fogra-29);
+}
+
+.footer-bottom {
+  padding-block: 2rem;
+  text-align: center;
+}
+
+.copyright-link {
+  display: inline-block;
+}
+
+.copyright-link:is(:hover, :focus) {
+  text-decoration: underline;
+}
+
+/* back to top  */
+.back-top-btn {
+  position: fixed;
+  bottom: 1rem;
+  right: 2rem;
+  background-color: var(--deep-saffron);
+  color: var(--white);
+  padding: 1.5rem;
+  border-radius: 50%;
+  box-shadow: var(--shadow-1);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-1);
+}
+
+.back-top-btn.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-10px);
+}
+
+.back-top-btn:is(:hover, :focus) {
+  background-color: var(--rich-black-fogra-29);
+}
+
 /* Responsive */
 @media (min-width: 480px) {
   .header-btn-group .btn {
@@ -1181,6 +1362,10 @@ body.active {
 
   .hero-title {
     --fs-1: 4.2rem;
+  }
+
+  .footer-top .container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1312,6 +1497,10 @@ body.active {
   .blog-card {
     height: 100%;
   }
+
+  .input-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1432,6 +1621,19 @@ body.active {
   .blog-card .card-title {
     --fs-3: 2.2rem;
   }
+
+  .footer-top .container {
+    grid-template-columns: 1fr 1fr 1fr 1.6fr;
+  }
+
+  .footer-form {
+    margin-block-start: -170px;
+  }
+
+  .back-top-btn {
+    bottom: 20px;
+    right: 30px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -1461,5 +1663,9 @@ body.active {
 
   .banner-md .banner-item-content {
     left: 55%;
+  }
+
+  .footer-top .container {
+    grid-template-columns: 1.4fr 1fr 1fr 1.6fr;
   }
 }
